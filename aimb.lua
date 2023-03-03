@@ -7,10 +7,6 @@ local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local Holding = false
-local x = (math.random(0, 255))
-local y = (math.random(0, 255))
-local z = (math.random(0, 255))
-
 
 --AIMBOT SETTINGS
 _G.AimbotEnabled = true
@@ -21,10 +17,8 @@ _G.Rainbow = true
 
 --FOV CIRCLE SETTINGS
 _G.CircleSides = 64
-while _G.Rainbow == true do
-	_G.CircleColor == Color3.fromRGB(x, y, z)
-	task.wait()
-end
+
+_G.CircleColor = Color3.fromRGB(145, 142, 244)
 _G.CircleTransparency = 0.7
 _G.CircleRadius = 80
 _G.CircleFilled = false
@@ -127,4 +121,3 @@ RunService.RenderStepped:Connect(function()
 		TweenService:Create(Camera,TweenInfo.new(_G.Sensitivity, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{CFrame = CFrame.new(Camera.CFrame.Position, GetClosestPlayer().Character[_G.Aimpart].Position)}):Play()
 	end
 end)
-end,
